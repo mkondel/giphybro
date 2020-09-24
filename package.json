@@ -1,0 +1,22 @@
+{
+  "homepage": "http://mkondel.github.io/giphybro",
+  "name": "giphybro",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "predeploy": "yarn build && touch out/.nojekyll",
+    "deploy": "gh-pages -d out -t"
+  },
+  "dependencies": {
+    "next": "9.5.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "webpack": "^4.44.2"
+  }
+}
