@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "rm -rf build && next build && next export && mv out build",
+    "build": "next build && next export -o build",
     "start": "next start",
-    "predeploy": "yarn build",
+    "predeploy": "yarn build && touch build/.nojekyll",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
