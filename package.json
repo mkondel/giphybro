@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build && next export -o build",
     "start": "next start",
-    "predeploy": "yarn build && touch build/.nojekyll",
+    "predeploy": "yarn build && touch build/.nojekyll && mv build/_next build/next && sed -i 's/_next/next/g' build/index.html build/404.html",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
