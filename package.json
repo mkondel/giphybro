@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o build",
+    "build": "next build && next export",
     "start": "next start",
-    "predeploy": "yarn build && touch build/.nojekyll && mv build/_next build/next && sed -i 's/_next/next/g' build/index.html build/404.html",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn build && touch out/.nojekyll",
+    "deploy": "gh-pages -d out -t"
   },
   "dependencies": {
     "next": "9.5.3",
