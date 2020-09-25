@@ -7,36 +7,42 @@ const style = {
   position: 'fixed',
 }
 
-const handleSpecialInput = ({value, keyCode}, keywords, setKeywords) => {
-  console.log('handleInput()', value, keyCode, keywords)
-
-  switch(keyCode){
-    case 8:   // 8 is Backspace
-      setKeywords(keywords.slice(0, keywords.length - 1))
-      break;
-    case 27:  // 27 is ESC
-      setKeywords('')
-      break;
-    default:
-      setKeywords(keywords)
-      break;
-  }
-}
 
 // no input box, just start typing
 const GiphySearch = ({styles}) => {
-  const { keywords, setKeywords } = useContext(GiphyContext);
-  const updateKeywords = ({target:{value}}) => setKeywords(keywords+value)
+  const { keywords, setKeywords, setOffset } = useContext(GiphyContext);
+  const updateKeywords = ({target:{value}}) => setKeywords(String(keywords+value).trim())
+  const handleSpecialInput = ({value, keyCode}) => {
+    console.log('handleInput()', value, keyCode, keywords)
+    setOffset(0)
 
-  return <FocusTrap>
+    switch(keyCode){
+      case 8:   // 8 is Backspace
+        setKeywords(keywords.slice(0, keywords.length - 1))
+        break;
+      case 27:  // 27 is ESC
+        setKeywords('')
+        break;
+      default:
+        setKeywords(keywords)
+        break;
+    }
+  }
+
+  const onDeactivate = () => {
+    alert('onDeactivate')
+  }
+
+  return <FocusTrap focusTrapOptions={{escapeDeactivates: false, allowOutsideClick: true, onDeactivate: () => console.log('onDeactivate'), onActivate: () => console.log('onActivate') }}>
     <div>
+      {keywords ? <h1>{keywords}</h1> : <h1>what?</h1>}
       <input 
         style={style} 
         type='text' 
         autoFocus
         value=''
         onChange={updateKeywords}
-        onKeyUp={ e => handleSpecialInput(e, keywords, setKeywords)}
+        onKeyUp={handleSpecialInput}
       />
     </div>
   </FocusTrap>
