@@ -15,6 +15,7 @@ const GiphySearch = ({styles}) => {
   const handleSpecialInput = ({value, keyCode}) => {
     console.log('handleInput()', value, keyCode, keywords)
     setOffset(0)
+    window.scrollTo(0, 0)
 
     switch(keyCode){
       case 8:   // 8 is Backspace

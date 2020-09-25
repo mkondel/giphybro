@@ -8,7 +8,7 @@ export const GiphyProvider = ({children}) => {
   const [keywords, setKeywords ] = useState('')
   const [results, setResults ] = useState([])
   const [offset, setOffset ] = useState(0)
-  const limit = 10
+  const limit = 50
   const callGiphy = async api => {
     try{
       const res = await fetch(api)
@@ -18,18 +18,14 @@ export const GiphyProvider = ({children}) => {
     }
   }
   const apiGiphy = async api => {
-    const data = await callGiphy(api)
-    setResults(data)
+    const {data} = await callGiphy(api)
+    setResults(offset === 0 ? data : [...results, ...data])
   }
+
   const trendingGiphy = () => {apiGiphy(`http://api.giphy.com/v1/gifs/trending?limit=${limit}&api_key=${giphyToken}&offset=${offset}`)}
   const searchGiphy = () => {apiGiphy(`http://api.giphy.com/v1/gifs/search?limit=${limit}&api_key=${giphyToken}&offset=${offset}&q=${keywords}`)}
-  const pageGiphy = () => {
-    keywords === '' ? trendingGiphy() : searchGiphy()
-  }
-  const nextPage = () => {
-    const newOffset = offset + limit
-    setOffset(newOffset)
-  }
+  const pageGiphy = () => {keywords === '' ? trendingGiphy() : searchGiphy()}
+  const nextPage = () => setOffset(offset + limit)
 
   useEffect(trendingGiphy, []);
   useEffect(keywords === '' ? trendingGiphy : searchGiphy, [keywords]);
