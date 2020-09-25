@@ -5,7 +5,10 @@ const isProd = (process.env.NODE_ENV || 'production') === 'production'
 const assetPrefix = isProd ? '/giphybro' : ''
 
 module.exports = {
-  publicRuntimeConfig: {assetPrefix},
+  publicRuntimeConfig: {
+    assetPrefix,
+    giphyToken: '97AHOMxJeI3AqA1JBa1qycqbX8Pod3Xi',
+  },
   assetPrefix,
   webpack: config => {
     config.plugins.push(

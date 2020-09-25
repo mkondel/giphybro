@@ -1,22 +1,24 @@
 import Head from 'next/head'
-import getConfig from 'next/config'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import { GiphyProvider } from '../src/components/GiphyContext'
+import GiphyResults from '../src/components/GiphyResults'
+import GiphySearch from '../src/components/GiphySearch'
 
-const { publicRuntimeConfig: { assetPrefix } } = getConfig()
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href={`${assetPrefix}/favicon.ico`} />
+        <title>Giphy Bro</title>
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        {/*timestamp: {Date.now()}*/}
+        <GiphyProvider>
+          <GiphySearch styles={styles}/>
+          <GiphyResults styles={styles}/>
+        </GiphyProvider>
       </main>
     </div>
   )
