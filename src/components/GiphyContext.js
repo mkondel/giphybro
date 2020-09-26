@@ -11,7 +11,7 @@ export const GiphyProvider = ({children}) => {
   const limit = 50
   const callGiphy = async api => {
     try{
-      const res = await fetch(api)
+      const res = await fetch(api, {mode: 'cors'})
       return await res.json()
     }catch(e){
       console.error(e)
@@ -22,8 +22,8 @@ export const GiphyProvider = ({children}) => {
     setResults(offset === 0 ? data : [...results, ...data])
   }
 
-  const trendingGiphy = () => {apiGiphy(`http://api.giphy.com/v1/gifs/trending?limit=${limit}&api_key=${giphyToken}&offset=${offset}`)}
-  const searchGiphy = () => {apiGiphy(`http://api.giphy.com/v1/gifs/search?limit=${limit}&api_key=${giphyToken}&offset=${offset}&q=${keywords}`)}
+  const trendingGiphy = () => {apiGiphy(`https://api.giphy.com/v1/gifs/trending?limit=${limit}&api_key=${giphyToken}&offset=${offset}`)}
+  const searchGiphy = () => {apiGiphy(`https://api.giphy.com/v1/gifs/search?limit=${limit}&api_key=${giphyToken}&offset=${offset}&q=${keywords}`)}
   const pageGiphy = () => {keywords === '' ? trendingGiphy() : searchGiphy()}
   const nextPage = () => setOffset(offset + limit)
 
