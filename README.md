@@ -24,6 +24,9 @@ Github using [react-gh-pages](https://github.com/gitname/react-gh-pages).
 - Focus trap allows constant keyboard input w/o a visible text box.
 
 # Trade-offs
+- Pure serverless SPA can't handle sensitive data since it will have to be part of the JS bundle.
+- No backend from github pages.
+- Context because it is already part of React, so no additional libs needed. Reduces complexity and saves implementation time. Redux was a major step in the evolution and a great tool, but it's time to face the music...
 
 # Time
 - Next.js, gh-pages setup, deploying successfully: 3hr
