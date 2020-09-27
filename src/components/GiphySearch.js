@@ -2,12 +2,6 @@ import React, { useContext, useRef, useEffect } from 'react'
 import GiphyContext from './GiphyContext'
 import FocusTrap from 'focus-trap-react'
 
-const style = {
-  left: '100vw',
-  position: 'fixed',
-}
-
-
 // no input box, just start typing
 const GiphySearch = ({styles}) => {
   const { keywords, setKeywords, setOffset } = useContext(GiphyContext);
@@ -16,7 +10,6 @@ const GiphySearch = ({styles}) => {
     console.log('handleInput()', value, keyCode, keywords)
     setOffset(0)
     window.scrollTo(0, 0)
-
     switch(keyCode){
       case 8:   // 8 is Backspace
         setKeywords(keywords.slice(0, keywords.length - 1))
@@ -30,15 +23,19 @@ const GiphySearch = ({styles}) => {
     }
   }
 
-  const onDeactivate = () => {
-    alert('onDeactivate')
-  }
-
-  return <FocusTrap focusTrapOptions={{escapeDeactivates: false, allowOutsideClick: true, onDeactivate: () => console.log('onDeactivate'), onActivate: () => console.log('onActivate') }}>
+  return <FocusTrap 
+    focusTrapOptions={{
+      escapeDeactivates: false, 
+      allowOutsideClick: true}
+    }
+  >
     <div>
       {keywords ? <h1>{keywords}</h1> : <h1>what?</h1>}
       <input 
-        style={style} 
+        style={{
+          left: '100vw',
+          position: 'fixed',
+        }} 
         type='text' 
         autoFocus
         value=''

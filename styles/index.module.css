@@ -1,0 +1,47 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+}
+
+.main {
+  /*padding: 5rem 0;*/
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.results{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.loading {
+  color: transparent;
+  background: linear-gradient(120deg, #eeeeee 48%, white 50%, #eeeeee 52%);
+  background-size: 300%;
+  animation: loading 2s ease-in-out infinite;
+  margin: 5px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

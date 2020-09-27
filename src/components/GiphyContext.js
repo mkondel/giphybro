@@ -1,6 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react'
 import getConfig from 'next/config'
-
 const { publicRuntimeConfig: { giphyToken } } = getConfig()
 const TheContext = createContext({})
 

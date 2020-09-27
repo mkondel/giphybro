@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { GiphyProvider } from '../src/components/GiphyContext'
 import GiphyResults from '../src/components/GiphyResults'
 import GiphySearch from '../src/components/GiphySearch'
-
-import styles from '../styles/Home.module.css'
+import styles from '../styles/index.module.css'
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {/*timestamp: {Date.now()}*/}
         <GiphyProvider>
           <GiphySearch styles={styles}/>
           <GiphyResults styles={styles}/>
