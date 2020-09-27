@@ -26,3 +26,9 @@ Github using [react-gh-pages](https://github.com/gitname/react-gh-pages).
 # Trade-offs
 
 # Time
+- Next.js, gh-pages setup, deploying successfully: 3hr
+- Infinite scroll: 2hr
+- Focus trap and the invisible text input: 2hr
+- Styling and UI: 3hr
+- Giphy API: 2hr
+- TOTAL: 12hr
