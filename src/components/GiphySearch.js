@@ -5,7 +5,10 @@ import FocusTrap from 'focus-trap-react'
 // no input box, just start typing
 const GiphySearch = ({styles}) => {
   const { keywords, setKeywords, setOffset } = useContext(GiphyContext);
-  const updateKeywords = ({target:{value}}) => setKeywords(String(keywords+value).trim())
+
+  // const updateKeywords = ({target:{value}}) => setKeywords(String(keywords+value).trim())
+  const updateKeywords = ({target:{value}}) => setKeywords(keywords+value)
+
   const handleSpecialInput = ({value, keyCode}) => {
     console.log('handleInput()', value, keyCode, keywords)
     setOffset(0)

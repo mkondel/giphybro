@@ -5,7 +5,15 @@ import GiphyContext from './GiphyContext'
 
 const GiphyResults = ({styles}) => {
   const { results, nextPage } = useContext(GiphyContext);
-  const parseResults = R => R.map(({title, bitly_url, images:{original:{mp4}, fixed_height:{url, width, height}}}) => 
+  const parseResults = R => R.map(({
+    title, 
+    bitly_url, 
+    images:{
+      original:{mp4}, 
+      // fixed_height:{url, width, height}
+      fixed_height_downsampled:{url, width, height}
+    }
+  }) => 
     <div 
       key={mp4} 
       className={styles.loading}
