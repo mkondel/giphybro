@@ -4,6 +4,10 @@ https://mkondel.github.io/giphybro
 # Summary
 Type to search. Scroll down. Press ESC to reset.
 
+# Commands
+- `yarn dev`: run the app on your localhost.
+- `yarn deploy`: builds the prod version and uploads to github pages.
+
 # Tech
 
 ## UI
