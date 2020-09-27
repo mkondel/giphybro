@@ -15,8 +15,7 @@ Type to search. Scroll down. Press ESC to reset.
 
 [Focus Trap](https://github.com/focus-trap/focus-trap-react)
 
-## Hosting
-Github using [react-gh-pages](https://github.com/gitname/react-gh-pages).
+[Github Pages](https://github.com/gitname/react-gh-pages)
 
 ## Details
 - The current app is completely serverless, it could have been implemented in plain create-react-app. Next.js gives me a running start with its boilerplate, but it will also handle API and SSR when that's needed.
